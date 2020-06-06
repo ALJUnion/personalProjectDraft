@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('partials/head')%>
+    <title>Food Pick-Up</title>
+</head>
+
+<body>
+    <%-include('partials/nav')%>
+    <div class="Main-container">
+        <div class="Sub-container">
+            <div class="foodPackagesTitle">
+                <!-- This is where the title fo this page will be -->
+                <div>
+                    <h1>Food Pickup</h1>
+                </div>
+                <div><img src="./images/boxLogo.png"></div>
+            </div>
+            <!-- this is where the 2 different food packages will be listed -->
+            <div class="packages">
+                <div>
+                    <div><img src="images/basicGrocery.jpg"></div>
+                    <!-- <ul>Description of vegetable package -->
+                        <button type="button" class="collapsible">View contents of this package</button>
+                        <div class="content">
+                            <p> This vegeterian package consist: Garlic, kale, lime, and etc</p>
+                        </div>                    </ul>
+                </div>
+                <div>
+                    <div><img src="images/bag3.jpg"></div>
+                    <!-- <p>Description of basic food package</p> -->
+                    <button type="button" class="collapsible">View contents of this package</button>
+                    <div class="content">
+                        <p> This package consist: Romaine lettuce, spinach, potatoes, cheese,
+                            peanut butter.</p>
+                    </div>
+                </div>
+                <!-- <div id="fishy">
+        <div><img src=""></div>
+        <div><ul>Description of pescatarian package
+            <li></li>
+            <li></li>
+
+        </ul></div>
+    </div> -->
+            </div>
+            </br>
+            </br>
+            <!-- instructions paragraph on signing in -->
+            <div class="ins">
+                <p>Please sign in to opt in for our food packages. Why is this beneficial? Once you sign up you can
+                    select which package you would want, come to the location nearest to you and your food package will
+                    be ready for pick up.
+                    Food is distributed every other Wednesday in a month (2 X a month).
+                </p>
+            </div>
+            <!--  Home delivery title on page -->
+            <div class="homeDelivery">
+                <div>
+                    <h1>Home Delivery</h1>
+                </div>
+                <!-- subsection paragraph describing what we offer -->
+                <div>
+                    <p>We offer personal deliver for the home bound elderly. Please call 617-870-4440</p>
+                </div>
+            </div>
+
+            <!-- online order button that will prompt sign in screen -->
+            <div class="onlineOrder">
+                <button>Online Order</button><br>
+            </div>
+
+
+            <!-- upcoming events subheading section and event description  -->
+            <div class="deliveryEvents">
+                <div>
+                    <h1>Upcoming Events</h1>
+                </div>
+                <div class="eventImages">
+                    <img src="images/concert.jpg">
+                    <br>
+                    <img src="images/candle.jpg">
+                    <br>
+                </div>
+            </div>
+
+
+
+            <%-include('partials/footer')%>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

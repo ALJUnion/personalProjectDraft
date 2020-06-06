@@ -1,0 +1,254 @@
+/* LANDING HOME SITE SECTION */
+body {
+  background-color: black;
+  padding: 0 1%;
+}
+
+/* This is the navigation area section */
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background-color:grey;
+  /* width: 98%; */
+  padding: 2px;
+  margin: 0 aut0;
+}
+nav img {
+  width: 20px;
+  background-color: lightgoldenrodyellow;
+  margin: 2px;
+}
+/* This is section is the footer of the page */
+footer{
+width: 100%;
+display: block;
+padding: 10px 0;
+box-sizing: border-box;
+background-color:black;
+color: white;
+}
+footer img {
+  background-color: lightgoldenrodyellow;
+  width: 30px;
+}
+.privacyPolicy {
+  display: block;
+  flex-wrap: wrap;
+  text-align: center;
+  color: lightgoldenrodyellow;
+  padding: 10%;
+}
+.privacyPolicy h1 {
+  color: whitesmoke;
+}
+.privacyPolicy > div {
+display: inline-block;
+border: lime 5px;
+}
+/* The header style for all pages except homepage and foodpickup page */
+.headerTitle {
+  display:flex ;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  text-shadow:2px 2px darkgoldenrod;
+ 
+}
+h3 {
+  text-shadow:2px 2px darkgoldenrod;
+}
+  /* visited link */
+  a {
+    color:white;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: goldenrod ;
+  }
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+
+  button {
+    background-color: black; 
+    border: 2px solid;
+    color:gold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flexbox;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  /* Main container/ body of the page section  */
+  .Main-container {
+    background-color: wheat;
+    /* width: 98%; */
+  }
+  .Sub-container {
+    background-color:whitesmoke;
+
+  }
+  .organizationName {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* my Carousel section */
+
+.flexContainer {
+  display: flex;
+
+  
+}
+ /* title Logo for the Header of the page - fooUbank */
+  #titleLogo {
+    size: 5px ;
+  }
+  .paragraphContent {
+    border: 5px solid;
+    margin: 20px;
+    text-align: center;
+  }
+  p {
+    word-wrap: break-word;
+    text-indent: 10%;
+  }
+  
+ 
+
+  /* ////////////////////////////////////////////////////// */
+/* VOLUNTEER SITE SECTION */
+.waysToHelp {
+display: flex;
+width: 95%;
+align-content: space-between;
+align-items: center;
+}
+
+.help1 {
+  border: 3px solid;
+  margin: 3px;
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+}
+
+.help2 {
+  border: 3px solid;
+  margin: 3px;
+  text-align: center;
+  background-color: lightgray;
+
+}
+
+.help3 {
+  border: 3px solid;
+  margin: 3px;
+  text-align: center;
+  background-color: gold;
+  
+}
+
+
+
+
+
+/* ///////////////////////////////////////////////// */
+/* FOOD PICK UP SITE SECTION */
+
+.foodPackagesTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: center;
+  text-shadow:2px 2px darkgoldenrod;
+  margin-bottom: 50px;
+}
+
+.packages img {
+  width: 150px;
+  height: auto;
+}
+
+.ins {
+  display: flex;
+  background-color: lightyellow;
+  border: 1px solid;
+}
+
+
+.homeDelivery, p {
+  text-align: center;
+}
+
+/* section for images below the Upcoming events */
+.deliveryEvents{
+  text-align: center;
+  }
+
+/* images for Upcoming events section styling */
+.eventImages {
+  display: flex;
+border: 3px solid;
+width: 75%;
+}
+
+/* create 2 seperate containers for food package description-add images */
+.packages {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* online order button. center in the middle of page */
+.onlineOrder {
+  display: flex;
+  justify-content: center;
+}
+/* collapsible area underneath food packages */
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: black solid;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-bottom:300px ;
+}
+
+.active, .collapsible:hover {
+  background-color: darkgoldenrod;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* LOCATION AND EVENTS SITE SECTION */
+.locationDescrip {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+/* /////////////////////////////////////////////////////////////////////////// */
+/* ABOUT US SITE SECTION */
+
+/* CONTACT SITE SECTION */
+/* SIGN UP SITE SECTION */
+
