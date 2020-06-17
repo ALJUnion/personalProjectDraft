@@ -10,30 +10,57 @@
     <%-include('partials/nav')%>
     <div class="Main-container">
         <div class="Sub-container">
-            <div class="foodPackagesTitle">
+            <div class="headerTitle">
                 <!-- This is where the title fo this page will be -->
                 <div>
                     <h1>Food Pickup</h1>
                 </div>
                 <div><img src="./images/boxLogo.png"></div>
             </div>
+            <br>
+            <div class="briefing"><strong>
+                Below are two different pre-packaged meals for you to choose from. We have a basic food package assorted
+                with all the essentials you may need. Secondly we have a vegeterian pre-package option for those who
+                want to avoid any meat and dairy product.Contents in Vegetable and basic package are subject to change every 2 weeks. Click on the view contents to see what is available in this
+                weeks packages.</strong>
+            </div>
             <!-- this is where the 2 different food packages will be listed -->
             <div class="packages">
-                <div>
+                <div class="collapsible">
                     <div><img src="images/basicGrocery.jpg"></div>
-                    <!-- <ul>Description of vegetable package -->
-                        <button type="button" class="collapsible">View contents of this package</button>
-                        <div class="content">
-                            <p> This vegeterian package consist: Garlic, kale, lime, and etc</p>
-                        </div>                    </ul>
+                    <!-- Description of vegetable package -->
+                    <button id="buttonVeggie" type="button" class="collaps">View Veggie package</button>
+                    <div id="ct1" class="content">
+                        <p>
+                            In this package are:
+                            <li>Potatoes/Sweet potatoes</li>
+                            <li> Cabbage, dry beans</li>
+                            <li>Canned Tomatoe sauce, Canned mixed veggies</li>
+                            <li>Peppers (assorted colors)</li>
+                            <li>Frozen spinach & vegetables</li>
+                            <li>Onions, eggplant</li>
+                            <li>Squash, carrots, cucumbers</li>
+                            <li>Canned fruits, Honeydew</li>
+                            </p>
+                    </div>
+                    </ul>
                 </div>
-                <div>
+                <div class="collapsible">
                     <div><img src="images/bag3.jpg"></div>
                     <!-- <p>Description of basic food package</p> -->
-                    <button type="button" class="collapsible">View contents of this package</button>
-                    <div class="content">
-                        <p> This package consist: Romaine lettuce, spinach, potatoes, cheese,
-                            peanut butter.</p>
+                    <button id="buttonBasic" type="button" class="collaps">View basic package</button>
+                    <div id="ct2" class="content">
+                        <p>
+                            In this package are:
+                            <li>shredded and sliced cheese</li>
+                            <li>1 gallon of milk, apple and orange juice</li>
+                            <li>dozen eggs</li>
+                            <li>Small bag of rice</li>
+                            <li>Chicken breast & thigh pack</li>
+                            <li> Spaghetti (elbow, straight)</li>
+                            <li> canned beans</li>
+                            <li>Apples, canteloupe</li>
+                        </p>
                     </div>
                 </div>
                 <!-- <div id="fishy">
@@ -45,42 +72,46 @@
         </ul></div>
     </div> -->
             </div>
-            </br>
-            </br>
+            <div class="elderDelivery">
+                <div><h1>Home delivery</h1></div>
+                <h4>"We offer personal delivery for the home bound elderly" </h4>
+                <br>
+                <br>
+                <p> If you are an elder and do not have access to reliable transportation.
+                    Above are two selections you can pick from to have prepared for you. Click on the view buttons and a list of items will be displayed for each package. if you would
+                    like to customize these packages please call 617-870-4440. Please have legal identification
+                    upon delivery.
+                </p>
+            </div>
+
             <!-- instructions paragraph on signing in -->
-            <div class="ins">
+            <!-- <div class="ins">
                 <p>Please sign in to opt in for our food packages. Why is this beneficial? Once you sign up you can
                     select which package you would want, come to the location nearest to you and your food package will
                     be ready for pick up.
                     Food is distributed every other Wednesday in a month (2 X a month).
                 </p>
-            </div>
-            <!--  Home delivery title on page -->
-            <div class="homeDelivery">
-                <div>
-                    <h1>Home Delivery</h1>
-                </div>
-                <!-- subsection paragraph describing what we offer -->
-                <div>
-                    <p>We offer personal deliver for the home bound elderly. Please call 617-870-4440</p>
-                </div>
-            </div>
+            </div> -->
 
             <!-- online order button that will prompt sign in screen -->
             <div class="onlineOrder">
-                <button>Online Order</button><br>
+                <button id="orderButton"> Online Order</button><br>
             </div>
 
 
             <!-- upcoming events subheading section and event description  -->
             <div class="deliveryEvents">
                 <div>
-                    <h1>Upcoming Events</h1>
+                    <h1>Upcoming Free Events</h1>
                 </div>
                 <div class="eventImages">
-                    <img src="images/concert.jpg">
+                    <a href="https://www.thebostoncalendar.com/events/storytime-with-the-library--25"><img src="images/storytime.jpeg">Virtual storytime</a>
                     <br>
-                    <img src="images/candle.jpg">
+                    <a href="http://www.quincyfarmersmarket.com/"><img src="images/quincyMarket.png">Quincy Farmers market</a>
+                    <br>
+                    <a href="https://accounts.generalassemb.ly/identify"><img src="images/launchBusiness.jpg">Launch Home business</a>
+                    <br>
+                    <a href="https://edportal.harvard.edu/pop-portal-arts"><img src="images/artMarket.png"> Art Market</a>
                     <br>
                 </div>
             </div>
@@ -90,7 +121,6 @@
             <%-include('partials/footer')%>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head')%>
+    <title>Host Ideas</title>
+</head>
+<body>
+    <%-include('partials/nav')%>
+    <div class="Main-container">
+        <div class="Sub-container">
+            <div class="headerTitle">Host Form Submission</div>
+    <form action="/addSuggestion" method="POST">
+        <div class="volunteerSubmit">
+        <label for="firstName"> First name: </label>
+        <input type="text" id="firstName" name="username" placeholder="First name" required><br><br>
+
+        <label for="lastName"> Last name: </label>
+        <input type="text" id="username" name="username" placeholder="Last name" required><br><br>
+
+        <label for="email"> Email: </label>
+        <input type="text" id="mail" name="emailinfo" placeholder="example@mail.com" required><br><br>
+
+        <label for="hostInput"> Please write a brief description of how you would like to help below: </label>
+        <br>        
+        <textarea rows="6" cols="60" id="hostInput" name="hostInput" placeholder="Comment your ideas here..." required></textarea>
+        <br>
+
+        <input type="submit" id="clickPop">
+        </div>
+        <!-- The Modal TEST, INCOMPLETE -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+  
+  </div>
+    </form>
+
+</div>
+<div>
+    <p class="thankYou"> We appreaciate you volunteering your time to help the 
+        local community! </p>
+        </div>
+        </div>
+    <%-include('partials/footer')%>
+</body>
+</html>

@@ -19,33 +19,58 @@ app.set('view engine', 'ejs');
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true }));
 
+// connect to Database
+// let mongo_client = MongoCLient;
+// mongo_client.connect(DB_URL, (err, db_client) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(`connect to ${FOODUBANK_DB} database.`);
+//         db_handler = db_client.db(FOODUBANK_DB);
+//     }
+// });
+
 // ///////////////////////////////////////////////
 
 // connects/ links to css sheet , this will let my app access the public directory
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('views' , path.join(__dirname, 'views'));
+
 
 // ///////////////////////////////////////////////
 // gets home page
 app.get('/', (req, res) => {
     res.render('index');
 });
+
 // gets the food pickUp page from views folder
 app.get('/foodPickup', (req, res) => {
     res.render('foodPickUp');
 });
+
 // sign in page
 app.get('/signIn', (req, res) => {
     res.render('signIn');
 });
+
 // volunteer page
 app.get('/volunteer', (req, res) => {
     res.render('volunteer');
+});
+
+// Host ideas page submission
+app.get('/hostIdeas', (req, res) => {
+    res.render('hostIdeas');
+});
+
+// online order button route
+app.get('/onlineChoice', (req, res) => {
+    res.render('onlineChoice');
 });
 // locations and events
 app.get('/locationEvents', (req, res) => {
     res.render('locationEvents');
 });
+
 // contact page
 app.get('/contact', (req, res) => {
     res.render('contact');
@@ -55,36 +80,29 @@ app.get('/contact', (req, res) => {
 app.get('/aboutUs', (req, res) => {
     res.render('aboutUs');
 });
+
 // Privacy policy page
 app.get('/privacyPolicy', (req, res) => {
     res.render('privacyPolicy');
 });
+// terms and conditions page
+app.get('/termsConditions', (req, res) => {
+    res.render('termsConditions');
+});
+// Submit message page
+app.get('/successMessage', (req,res) => {
+    res.render('successMessage');
+})
 
 // /////////////////////////////////////////////////////////////
-// store clients name
-
 // declaring db handler
 let db_handler;
 const DB_URL = process.env.DB_URL;
 const VOLUNTEER_COLLECTION = process.env.VOLUNTEER_COLLECTION;
 const FOODUBANK_DB = process.env.FOODUBANK_DB;
+const ONLINE_ORDER_COLLECTION = process.env.ONLINE_ORDER_COLLECTION;
 
 // /////////////////////////////////////////////////////////////
-// FOR collapse on food pick up page
-// let coll = document.getElementsByClassName("collapsible");
-// let i;
-
-// for (i = 0; i < coll.length; i++) {
-//   coll[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     let content = this.nextElementSibling;
-//     if (content.style.display === "block") {
-//       content.style.display = "none";
-//     } else {
-//       content.style.display = "block";
-//     }
-//   });
-// }
 // /////////////////////////////////////////////////////////////
 // this post route will be for the sign in page PHASE 2
 // app.post('/signIn' , (req,res) => {
@@ -93,37 +111,72 @@ const FOODUBANK_DB = process.env.FOODUBANK_DB;
 //     const email = form_data ['email']
 // })
 
-// this is for the form submission on volunteers page
-
-// let submission_obj = {};
-let confirmation_message = "Submission Successful";
-
-
-app.post('/volunteer', (req, res) => {
+// /////////////////////////////////////////////////////
+// online choice order submission section
+app.post('/addOrder', (req, res) => {
+    // when user clicks submit on the form, the form data is sent to the server through the request object and to access the form data we go through req.body
     const form_data = req.body;
-    const clientName = form_data['clientName'];
-
-    const my_object = {
-        "": clientName,
-        "": bags
+    // when user selects package type in the form. the value will be stored in the variable packagetype and we are accesing the value by using the bracket notation. 
+    const packageType = form_data['packageType'];
+    const numpackages = form_data['numpackages'];
+    const orderName = form_data['orderName'];
+    // we are storing the values from the form data into an object called selection which will eventually be storedd in our database.
+    let selection = {
+        namepackage: packageType,
+        numberOrdr: numpackages,
+        customer: orderName
     };
 
-    db_handler.collection(VOLUNTEER_COLLECTION).insert(submission_obj, (err, result) => {
+    db_handler.collection(ONLINE_ORDER_COLLECTION).insertOne(selection, (err, result) => {
         if (err) {
-            console.log(err);
-        } else {
-            console.log("Submission successful");
+            console.log("Error: " + err);
+        }
+        else {
+            console.log("One Entry Added");
+            // res.redirect('/');
+            res.render('successMessage');
+            // res.location('/successMessage');
         }
     });
+} )
+// /////////////////////////////////////////////////////
+// This is for the form submission on volunteers page via Host Ideas EJS.
 
-    submission_obj.push();
+app.post('/addSuggestion', (req, res) => {
+    const form_data = req.body;
+    const username = form_data['username'];
+    const email = form_data['emailinfo'];
+    const hostInput = form_data['hostInput'];
 
-    res.redirect('/');
-});
-
+    let hostSuggestion = {
+        name: username,
+        useremail: email,
+        hostMessage: hostInput
+    };
+    db_handler.collection(VOLUNTEER_COLLECTION).insertOne(hostSuggestion, (err, result) => {
+        if (err) {
+            console.log("Error: " + err);
+        }
+        else {
+            console.log("One Entry Added");
+            res.render('successMessage');
+        }
+    });
+})
 
 // calls the PORT to run the website
 
 app.listen(PORT, () => {
     console.log(`Server is listening on ${PORT}`);
+    let mongo_client = mongodb.MongoClient;
+    mongo_client.connect(DB_URL, (err, db_client) => {
+        if (err) {
+            console.log("Error: " + err);
+        }
+        else {
+            console.log("Database Connected");
+            db_handler = db_client.db(FOODUBANK_DB);
+        }
+    });
+
 });
